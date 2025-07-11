@@ -1,6 +1,6 @@
 hours = 2
 
-seconds = 60 * (hours*60)
+seconds = 3600 * hours
 
 #[hours] hour(s) is [seconds] seconds
 
