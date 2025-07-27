@@ -1,10 +1,11 @@
 # Global conversion factors
-global FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
-global CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
-global FREEZING_POINT_DIFFERENCE = 32
+FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
+CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
+
 
 def convert_to_celsius(fahrenheit):
     """Convert Fahrenheit temperature to Celsius"""
+    global FREEZING_POINT_DIFFERENCE = 32
     celsius = (fahrenheit - FREEZING_POINT_DIFFERENCE) * FAHRENHEIT_TO_CELSIUS_FACTOR
     return celsius
 
