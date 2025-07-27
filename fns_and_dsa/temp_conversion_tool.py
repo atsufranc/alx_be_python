@@ -1,32 +1,40 @@
-
-
 # Global conversion factors
 FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
 CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
+FREEZING_POINT_DIFFERENCE = 32
 
-# Convert Fahrenheit to Celsius
 def convert_to_celsius(fahrenheit):
-    global FAHRENHEIT_TO_CELSIUS_FACTOR
-    return (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
+    """Convert Fahrenheit temperature to Celsius"""
+    celsius = (fahrenheit - FREEZING_POINT_DIFFERENCE) * FAHRENHEIT_TO_CELSIUS_FACTOR
+    return celsius
 
-# Convert Celsius to Fahrenheit
 def convert_to_fahrenheit(celsius):
-    global CELSIUS_TO_FAHRENHEIT_FACTOR
-    return (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + 32
+    """Convert Celsius temperature to Fahrenheit"""
+    fahrenheit = (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + FREEZING_POINT_DIFFERENCE
+    return fahrenheit
 
-# Main logic
-if __name__ == "__main__":
+def main():
+    print("Temperature Conversion Tool")
+    print("--------------------------")
+    
     try:
-        temperature = float(input("Enter the temperature to convert: "))
-        unit = input("Is this temperature in Celsius or Fahrenheit? (C/F): ").strip().upper()
-
+        # Get temperature input
+        temp_input = input("Enter the temperature to convert: ")
+        temperature = float(temp_input)
+        
+        # Get unit input
+        unit = input("Is this temperature in Celsius or Fahrenheit? (C/F): ").upper()
+        
         if unit == 'F':
-            result = convert_to_celsius(temperature)
-            print(f"{temperature}°F is {result}°C")
+            converted_temp = convert_to_celsius(temperature)
+            print(f"{temperature}°F is {converted_temp}°C")
         elif unit == 'C':
-            result = convert_to_fahrenheit(temperature)
-            print(f"{temperature}°C is {result}°F")
+            converted_temp = convert_to_fahrenheit(temperature)
+            print(f"{temperature}°C is {converted_temp}°F")
         else:
             print("Invalid unit. Please enter 'C' for Celsius or 'F' for Fahrenheit.")
     except ValueError:
-        raise ValueError("Invalid temperature. Please enter a numeric value.")
+        print("Invalid temperature. Please enter a numeric value.")
+
+if __name__ == "__main__":
+    main()
