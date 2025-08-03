@@ -12,7 +12,7 @@ class BankAccount:
             #print(f"Withdrew: ${amount}")
             return f"Withdrew: ${amount}" 
         #print("Insufficient funds.") 
-        return print("Insufficient funds.")
+        return print(" Insufficient funds. ")
     def get_balance(self):
         return self.balance
     # def __str__(self):
