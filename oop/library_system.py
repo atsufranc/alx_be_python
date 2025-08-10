@@ -30,3 +30,8 @@ class Library:
                 print(f"PrintBook: {book.title} by {book.author}, Page Count: {book.page_count}")
             else:
                 print(f"Book: {book.title} by {book.author}")
+    def __str__(self):
+        return f"Library with {len(self.books)} books"
+
+    def __repr__(self):
+        return f"Library({self.books})"
